@@ -1,5 +1,6 @@
 "use strict";
 
+// Task #1
 const firstRow = 'мама мыла раму';
 const secondRow = 'собака друг человека';
 const button = document.getElementById('selectALetter');
@@ -36,3 +37,28 @@ function getLetter() {
         alert('Вы передумали! ;)')
     }
 }
+
+
+// Task #2
+function formattedPhone(phone) {
+    let result = '';
+
+    for (let i = 0; i < phone.length; i++) {
+
+        if (i === 1) {
+            result += phone.charAt(i) + ' (';
+        } else if (i === 4) {
+            result += phone.charAt(i) + ') ';
+        } else if (i === 7) {
+            result += phone.charAt(i) + '-';
+        } else if (i === 9) {
+            result += phone.charAt(i) + '-';
+        } else {
+            result += phone.charAt(i);
+        }
+    }
+
+    return console.log(result);
+}
+
+console.log(formattedPhone('+71234567890')); // +7 (123) 456-78-90
