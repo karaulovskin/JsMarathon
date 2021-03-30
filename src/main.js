@@ -2,15 +2,18 @@
 
 const firstRow = 'мама мыла раму';
 const secondRow = 'собака друг человека';
+const button = document.getElementById('selectALetter');
 
-function getRow(firstRow, secondRow) {
+button.addEventListener('click', getLetter);
+
+function getRow(firstRow, secondRow, letter) {
     let resultFirstRow = 0;
     let resultSecondRow = 0;
 
     function getNumber(counter) {
         let result = 0;
         for (let i = 0; i < counter.length; i++) {
-            if (counter.charAt(i) !== 'а') {
+            if (counter.charAt(i) !== letter) {
                 continue;
             }
             result++;
@@ -21,7 +24,15 @@ function getRow(firstRow, secondRow) {
     resultFirstRow = getNumber(firstRow);
     resultSecondRow = getNumber(secondRow);
 
-    return (resultFirstRow > resultSecondRow) ? firstRow : secondRow;
+    alert((resultFirstRow > resultSecondRow) ? firstRow : secondRow);
 }
 
-console.log(getRow(firstRow, secondRow));
+function getLetter() {
+    let letter = prompt('Введите букву');
+
+    if (letter) {
+        getRow(firstRow, secondRow, letter);
+    } else {
+        alert('Вы передумали! ;)')
+    }
+}
